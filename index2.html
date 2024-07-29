@@ -1,0 +1,59 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Manager</title>
+</head>
+<body>
+    <h1>Cookie Manager</h1>
+    <button id="listCookies">List Cookies</button>
+    <button id="addCookie">Add Cookie</button>
+    <div id="cookieList"></div>
+    
+    <script src="app.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIST COOKIES</title>
+</head>
+<body>
+    <h1>List Cookies</h1>
+    <button id="listCookies" onclick="listCookies()">List Cookies</button>
+    <br>
+    <div id="cookies"></div>
+
+    <script>
+        function listCookies() {
+            var cookies = document.cookie.split("; ");
+            console.log(cookies);
+            var div = document.getElementById("cookies");
+            if (cookies[0] === "")
+             {
+                div.innerHTML = "<p>No cookies found</p>";
+            } else {
+                for (var i = 0; i < cookies.length; i++) {
+                    div.innerHTML += "<p>" + cookies[i]+ "</p>";
+                }
+            }
+        }
+
+            function setCookie(name, value) {
+            var expires = "";
+            document.cookie = name + "=" + (value || "") +"; path=/;";
+        }
+
+        // Setting sample cookies
+            setCookie("SRT", "TN66AD1719");
+            setCookie("username", "john_doe");
+            setCookie("sessionToken", "abc123");
+    </script>
+</body>
+</html>
+
